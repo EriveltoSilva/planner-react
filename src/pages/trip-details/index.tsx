@@ -1,6 +1,19 @@
-import { Calendar, CircleCheck, CircleDashed, Link2, MapPin, Plus, Settings2, UserCog } from "lucide-react";
+import { useState } from "react";
+
+
+import { Calendar, CircleCheck, CircleDashed, Link2, MapPin, Plus, Settings2, Tag, UserCog, X } from "lucide-react";
 
 export function TripDetailsPage() {
+    const [isCreateActivityOpen, setIsCreateActivityOpen] = useState<boolean>(false);
+
+    const openCreateActivityModal = () => {
+        setIsCreateActivityOpen(true);
+    };
+
+    const closeCreateActivityModal = () => {
+        setIsCreateActivityOpen(false);
+    };
+
     return (
         <div className="max-w-6xl px-6 py-10 mx-auto space-y-8">
             <div className="pl-6 pr-4 rounded-xl bg-zinc-900 h-16 w-full shadow-shape flex items-center justify-between">
@@ -33,7 +46,7 @@ export function TripDetailsPage() {
                 <div className="flex-1 space-y-6">
                     <div className="flex items-center justify-between">
                         <h2 className="text-3xl text-zinc-50 font-semibold">Atividades</h2>
-                        <button className="bg-lime-300 hover:bg-lime-400 text-lime-950  rounded-lg py-2 px-5 font-medium flex items-center gap-2">
+                        <button onClick={openCreateActivityModal} className="bg-lime-300 hover:bg-lime-400 text-lime-950  rounded-lg py-2 px-5 font-medium flex items-center gap-2">
                             <Plus className="size-5" />
                             Cadastrar atividade
                         </button>
@@ -164,8 +177,6 @@ export function TripDetailsPage() {
 
                     <div className='w-full h-px bg-zinc-800' />
 
-
-
                     <div className="space-y-6">
                         <h2 className="text-zinc-50 font-semibold text-xl">Convidados</h2>
 
@@ -202,6 +213,53 @@ export function TripDetailsPage() {
 
                 </div>
             </main>
+
+
+            {isCreateActivityOpen &&
+                (
+                    <div className='fixed inset-0 bg-black/60 flex items-center justify-center p-5'>
+                        <div className='w-[640px]  rounded-xl px-6 py-5 bg-zinc-900 shadow-shape space-y-5'>
+                            <div className='space-y-2'>
+                                <div className='flex justify-between items-center'>
+                                    <h2 className='text-white text-lg font-semibold'>Cadastrar atividade</h2>
+                                    <button type='button' onClick={closeCreateActivityModal} className='size-5 text-zinc-400'><X /> </button>
+                                </div>
+                                <p className='text-zinc-400 text-sm'>
+                                    Todos convidados podem visualizar as atividades.
+                                </p>
+                            </div>
+
+                            <form className='space-y-3'>
+                                <div className="h-14 px-5 bg-zinc-950 rounded-lg border border-zinc-800 flex items-center gap-2">
+                                    <Tag className='text-zinc-400 size-5' />
+                                    <input type="text" name="title" placeholder='Qual a atividade?' className='placeholder:text-zinc-400 bg-transparent outline-none flex-1' />
+                                </div>
+
+
+                                <div className="h-14 flex-1 px-5 bg-zinc-950 rounded-lg border border-zinc-800 flex items-center gap-2">
+                                    <Calendar className='text-zinc-400 size-5' />
+                                    <input
+                                        type="datetime-local"
+                                        name="occurs_at"
+                                        placeholder='Data e horário da atividade'
+                                        className='placeholder:text-zinc-400 bg-transparent outline-none flex-1 [color-scheme:dark]'
+                                    />
+                                </div>
+
+
+
+                                <button type='submit' className="w-full h-11 bg-lime-300 hover:bg-lime-400 text-lime-950  rounded-lg  px-5 font-medium flex items-center justify-center gap-2">
+                                    Salvar atividade
+                                </button>
+
+                            </form>
+
+
+                        </div>
+
+                    </div>
+                )}
+
 
         </div>
     )
