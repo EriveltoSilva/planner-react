@@ -1,8 +1,7 @@
 # Plann.er
 
-O projeto é um site desktop para montar planos de viagem com amigos, registrar atividades e links úteis.
+The project is a desktop website to create travel plans with friends, record activities and useful links.
 
-Esse é um dos projetos do evento NLW Journey, um dos conteúdos disponíveis para alunos da Rocketseat.
-
+This is one of the projects of the NLW Journey event, one of the contents available to Rocketseat students.
 
 Figma: https://www.figma.com/community/file/1392276515495389646
