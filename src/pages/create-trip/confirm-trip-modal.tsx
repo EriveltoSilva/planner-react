@@ -34,7 +34,7 @@ export function ConfirmTripModal({
 
                     <div className="h-14 px-5 bg-zinc-950 rounded-lg border border-zinc-800 flex items-center gap-2">
                         <Mail className='text-zinc-400 size-5' />
-                        <input type="email" name="personalEmail" placeholder='Seu e-mail pessoal' className='placeholder:text-zinc-400 bg-transparent outline-none flex-1' />
+                        <input type="email" name="email" placeholder='Seu e-mail pessoal' className='placeholder:text-zinc-400 bg-transparent outline-none flex-1' />
                     </div>
 
                     <button type='submit' className="w-full h-11 bg-lime-300 hover:bg-lime-400 text-lime-950  rounded-lg  px-5 font-medium flex items-center justify-center gap-2">
